@@ -10,6 +10,7 @@ module.exports = {
         { doc: 'gettingstarted', label: 'Guide' },
         { doc: 'api', label: 'API' },
         { page: 'help', label: 'Help' },
+        { doc: 'versions', label: 'Versions' },
         { blog: true, label: 'Blog' },
         { languages: true },
         { search: true },
@@ -60,7 +61,7 @@ module.exports = {
 
     /* Show last update time */
     enableUpdateTime: true,
-    
+
     blogSidebarCount: 25
 
     // You may provide arbitrary config keys to be used as needed by your

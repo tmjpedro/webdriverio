@@ -74,6 +74,9 @@
       "wdio-json-reporter": {
         "title": "JSON Reporter"
       },
+      "wdio-markdown-reporter": {
+        "title": "Markdown Reporter"
+      },
       "wdio-mochawesome-reporter": {
         "title": "Mochawesome Reporter"
       },
@@ -82,6 +85,9 @@
       },
       "wdio-reportportal-service": {
         "title": "Report Portal Service"
+      },
+      "wdio-slack-service": {
+        "title": "Slack Service"
       },
       "wdio-timeline-reporter": {
         "title": "Timeline Reporter"
@@ -250,6 +256,9 @@
       },
       "api/element/isEnabled": {
         "title": "isEnabled"
+      },
+      "api/element/isEqual": {
+        "title": "isEqual"
       },
       "api/element/isExisting": {
         "title": "isExisting"
@@ -428,6 +437,9 @@
       "typescript": {
         "title": "TypeScript Setup"
       },
+      "versions": {
+        "title": "WebdriverIO Versions"
+      },
       "watcher": {
         "title": "Watch Test Files"
       }
@@ -437,6 +449,7 @@
       "API": "API",
       "Help": "Help",
       "Blog": "Blog",
+      "Versions": "Versions",
       "GitHub": "GitHub"
     },
     "categories": {
