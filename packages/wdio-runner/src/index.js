@@ -4,7 +4,7 @@ import util from 'util'
 import EventEmitter from 'events'
 
 import logger from '@wdio/logger'
-import { initialiseServices, initialisePlugin, executeHooksWithArgs } from '@wdio/utils'
+import { initialiseWorkerService, initialisePlugin, executeHooksWithArgs } from '@wdio/utils'
 import { ConfigParser } from '@wdio/config'
 
 import BaseReporter from './reporter'
@@ -73,7 +73,8 @@ export default class Runner extends EventEmitter {
             return this._shutdown(0)
         }
 
-        initialiseServices(this.config, caps).map(::this.configParser.addService)
+        initialiseWorkerService(this.config, caps, args.ignoredWorkerServices)
+            .map(::this.configParser.addService)
 
         await runHook('beforeSession', this.config, this.caps, this.specs)
         browser = await this._initSession(this.config, this.caps, browser)
