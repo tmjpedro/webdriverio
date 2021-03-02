@@ -193,6 +193,15 @@ exports.config = {
             project: 'tsconfig.json'
         },
 
+        // Configure tsconfig-paths
+
+        tsConfigPathOpts:{
+            baseUrl: './',
+            paths: {
+                'modules/*': ['modules/*']
+            }
+        },
+
         // Configure how @babel/register is automatically included when present (and ts-node isn't)
         babelOpts: {}
     },

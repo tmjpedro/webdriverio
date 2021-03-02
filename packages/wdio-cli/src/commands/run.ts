@@ -104,6 +104,7 @@ export const builder = (yargs: yargs.Argv) => {
         .example('$0 run wdio.conf.js --mochaOpts.timeout 60000', 'Run suite with custom Mocha timeout')
         .example('$0 run wdio.conf.js --autoCompileOpts.autoCompile=false', 'Disable auto-loading of ts-node or @babel/register')
         .example('$0 run wdio.conf.js --autoCompileOpts.tsNodeOpts.project=configs/bdd-tsconfig.json', 'Run suite with ts-node using custom tsconfig.json')
+        .example('$0 run wdio.conf.js --autoCompileOpts.tsNodeOpts.project=configs/tsconfig.json --autoCompileOpts.tsConfigPathOpts.baseUrl=./', 'Run suite with tsconfig-paths and using custom tsconfig.json')
         .epilogue(CLI_EPILOGUE)
         .help()
 }

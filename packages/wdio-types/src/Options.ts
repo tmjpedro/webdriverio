@@ -414,6 +414,7 @@ export interface AutoCompileConfig {
     autoCompile?: boolean
     tsNodeOpts?: RegisterOptions
     babelOpts?: Record<string, any>
+    tsConfigPathOpts?: RegisterOptions
 }
 
 export interface MultiRemote extends Omit<Testrunner, 'capabilities'> {

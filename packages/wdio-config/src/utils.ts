@@ -96,8 +96,10 @@ export interface ModuleRequireService {
 }
 
 export function loadAutoCompilers(autoCompileConfig: Options.AutoCompileConfig, requireService: ModuleRequireService) {
+    // console.log('loadAutoCompilers');
+    // console.log('autoCompileConfig.tsConfigPathOpts:', autoCompileConfig.tsConfigPathOpts);
     return autoCompileConfig.autoCompile && (
-        loadTypeScriptCompiler(autoCompileConfig.tsNodeOpts, requireService)
+        (loadTypeScriptCompiler(autoCompileConfig.tsNodeOpts, requireService) || loadTypeScriptConfigPath(autoCompileConfig.tsConfigPathOpts, requireService))
         ||
         loadBabelCompiler(autoCompileConfig.babelOpts, requireService)
     )
@@ -127,6 +129,17 @@ export function loadBabelCompiler (babelOpts: Record<string, any> = {}, requireS
 
         (requireService.require('@babel/register') as any)(babelOpts)
         log.debug('Found \'@babel/register\' package, auto-compiling files with Babel')
+        return true
+    } catch (e) {
+        return false
+    }
+}
+
+export function loadTypeScriptConfigPath (tsConfigPathOpts: RegisterOptions = {}, requireService: ModuleRequireService) {
+    try {
+        requireService.resolve('tsconfig-paths') as any
+        (requireService.require('tsconfig-paths') as any).register(tsConfigPathOpts)
+        log.debug('Found \'tsconfig-paths\' package, auto-compiling TypeScript files')
         return true
     } catch (e) {
         return false
